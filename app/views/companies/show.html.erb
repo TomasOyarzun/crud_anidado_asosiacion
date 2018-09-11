@@ -25,27 +25,42 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :area %>
-    <%= f.select :area, Area.pluck(:name, :id) %>
+    <%= f.label :area_id %>
+    <%= f.select :area_id, Area.pluck(:name, :id) %>
   </div>
   
   <%= submit_tag 'Submit', class: 'btn btn-warning' %>
 <% end %>
 
 <h1> Empleados </h1>
-<% @company.employees.each do |employee| %>
-  <ul>
-    <li>
-      <%= employee.first_name %>  
-      <%= employee.last_name %> 
-      <%= employee.email %> 
-      <%= employee.area %> 
-    </li>
-  </ul>
-<% end %>
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Primer nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Email</th>
+      <th scope="col">Area</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @company.employees.each do |employee| %>
+      <tr>
+        <td><%= employee.first_name %></td>
+        <td><%= employee.last_name %></td>
+        <td><%= employee.email %></td> 
+        <td><%= employee.area.name %></td> 
+        <td>
+          <%= link_to "Eliminar", company_employee_path(@company, employee), method: :delete, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody> 
+</table>
 
 <div class="pt-2">
 	<%= link_to 'Edit', edit_company_path(@company) %> |
 	<%= link_to 'Back', companies_path %>	
 </div>
+
 
