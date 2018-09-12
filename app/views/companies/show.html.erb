@@ -49,7 +49,7 @@
         <td><%= employee.first_name %></td>
         <td><%= employee.last_name %></td>
         <td><%= employee.email %></td> 
-        <td><%= employee.area.name %></td> 
+        <td><%= link_to employee.area.name, area_path(employee.area_id), method: :get %></td>  
         <td>
           <%= link_to "Eliminar", company_employee_path(@company, employee), method: :delete, class: 'btn btn-danger' %>
         </td>

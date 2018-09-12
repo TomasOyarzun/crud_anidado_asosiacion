@@ -7,5 +7,10 @@
   </strong>
 </p>
 
+<% @area.employees.each do |employee| %>
+	<%= employee.email %>
+	<br>
+<% end %>
+<hr>
 <%= link_to 'Edit', edit_area_path(@area), class: 'btn btn-warning' %> 
 <%= link_to 'Back', areas_path, class: 'btn btn-info' %>
