@@ -13,10 +13,12 @@
   <tbody>
     <% @companies.each do |company| %>
     <tr>
-      <td><%= link_to company.name, company %></td>
+      <td><%= link_to company.name, company, class: 'text-info' %></td>
       <td><%= company.employees.count %></td>
-      <td><%= link_to 'Edit', edit_company_path(company), class: "btn btn-info" %></td>
-      <td><%= link_to 'Destroy', company_path(company), class: "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Edit', edit_company_path(company), class: 'btn btn-info' %></td>
+      <td>
+        <%= link_to 'Destroy', company_path(company), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+      </td>
     </tr>
     <% end %>
   </tbody>

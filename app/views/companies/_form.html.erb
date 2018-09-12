@@ -11,12 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="form-group">
+    <%= form.label :name, 'Nombre' %>
+    <%= form.text_field :name, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Crear empresa', class: 'btn btn-warning' %>
   </div>
 <% end %>
+
